@@ -8,14 +8,18 @@
   <a href="">
     <img src="https://img.shields.io/badge/arXiv-Paper-red?style=flat-square&logo=arxiv" alt="arXiv Paper"></a>
   &nbsp;
-  <a href="">
+  <a href="https://github.com/OSU-NLP-Group/ACuRL">
     <img src="https://img.shields.io/badge/GitHub-Project-181717?style=flat-square&logo=github" alt="GitHub Project"></a>
   &nbsp;
-  <a href="">
+  <a href="https://huggingface.co/collections/osunlp/acurl">
     <img src="https://img.shields.io/badge/HuggingFace-Models-yellow?style=flat-square&logo=huggingface" alt="HuggingFace Models"></a>
 </p>
 
-## We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
+<p align="center">
+  <img src="figures/ACuRL.jpg" width="1300">
+</p>
+
+## We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
 
 # Table of Contents
 
@@ -32,6 +36,7 @@
 conda create -n ACuRL python=3.10
 conda activate ACuRL
 pip install -r requirements.txt
+pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.8.3/flash_attn-2.8.3+cu12torch2.8cxx11abiFALSE-cp310-cp310-linux_x86_64.whl --no-cache-dir
 pip install -e .
 ```
 
@@ -211,7 +216,9 @@ You can directly run the following scripts to evaluate saved models in different
 ```
 ./scripts/hf_model_evaluation.sh
 ```
-To ensure transparency and enable apples-to-apples comparisons for the community, we release our evaluation results [here]()
+
+To facilitate transparency and enable apples-to-apples comparisons within the community, we release our evaluation results [here](https://drive.google.com/file/d/16vyrwg684HibQAP6cdqvQJuF0tLHjpZE/view?usp=sharing).
+
 # Acknowledgement
 
 Our codebase is built upon [veRL](https://github.com/volcengine/verl) and [verl-agent](https://github.com/langfengQ/verl-agent). The supported environments are adapted from [OSWorld](https://github.com/xlang-ai/OSWorld), [Scienceboard](https://github.com/OS-Copilot/ScienceBoard), [OfficeWorld](https://github.com/THUDM/ComputerRL). We extend our gratitude to the authors and contributors of these projects for their valuable work.
