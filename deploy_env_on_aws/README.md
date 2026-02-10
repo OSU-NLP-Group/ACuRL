@@ -5,8 +5,8 @@ This document provides a complete, end-to-end deployment guide for setting up th
 ## Launch EC2 Instances
 Navigate to: AWS Console → EC2 → Instances → Launch an instance
 
-![aws_ec2_1](aws_ec2_1.png)
-![aws_ec2_2](aws_ec2_2.png)
+![aws_ec2_1](../figures/aws_ec2_1.png)
+![aws_ec2_2](../figures/aws_ec2_2.png)
 
 ## Networking & Security Group
 Allow all inbound ports from trusted IPs

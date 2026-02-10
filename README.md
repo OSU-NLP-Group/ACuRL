@@ -15,7 +15,11 @@
     <img src="https://img.shields.io/badge/HuggingFace-Models-yellow?style=flat-square&logo=huggingface" alt="HuggingFace Models"></a>
 </p>
 
-We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
+<p align="center">
+  <img src="figures/ACuRL.jpg" width="1500">
+</p>
+
+## We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
 
 # Table of Contents
 
@@ -213,7 +217,7 @@ You can directly run the following scripts to evaluate saved models in different
 ./scripts/hf_model_evaluation.sh
 ```
 
-To facilitate transparency and enable apples-to-apples comparisons within the community, we release our evaluation results [here]().
+To facilitate transparency and enable apples-to-apples comparisons within the community, we release our evaluation results [here](https://drive.google.com/file/d/16vyrwg684HibQAP6cdqvQJuF0tLHjpZE/view?usp=sharing).
 
 # Acknowledgement
 
