@@ -19,7 +19,7 @@
   <img src="figures/ACuRL.jpg" width="1300">
 </p>
 
-## We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
+### We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
 
 # Table of Contents
 
