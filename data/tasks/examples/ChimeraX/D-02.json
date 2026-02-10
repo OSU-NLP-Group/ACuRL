@@ -1,0 +1,68 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Find all contacts with center-center distance ≤ 3.0Å in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-* /home/user/.config/ChimeraX/contacts-* /home/user/.config/ChimeraX/alphafold_database-*",
+            "shell": true
+        },
+        {
+            "func": "execute",
+            "command": "printf \"[DEFAULT]\nupdate_interval = 2147438648\" >> /home/user/.config/ChimeraX/alphafold_database-1",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "alphafold_match",
+            "name": "A8Z1J3"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        },
+        {
+            "func": "color",
+            "style": "bypolymer"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('_name') and value == 'contacts'",
+            "key": "lambda key: key",
+            "pattern": ".+"
+        },
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('page_source')",
+            "key": "lambda key: key",
+            "pattern": "41 distances"
+        }
+    ]
+}

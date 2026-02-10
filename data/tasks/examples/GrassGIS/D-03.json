@@ -1,0 +1,47 @@
+{
+    "type": "GrassGIS",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "There is only one POI whose start date contains both month and day in the current mapset. Delete them and only keep the year data in Grass GIS.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/world_latlong_wgs84/PERMANENT\"",
+            "shell": true
+        },
+        {
+            "func": "map",
+            "grassdb": "/home/user/grassdata",
+            "location": "grassdata_piemonte_utm32n_wgs84_grass7",
+            "mapset": "PERMANENT"
+        },
+        {
+            "func": "layer",
+            "wait": 5,
+            "query": {
+                "name": "boundary_region"
+            }
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "db",
+            "cmd": "v.db.select",
+            "kwargs": {
+                "map": "points_of_interest@PERMANENT",
+                "format": "json"
+            },
+            "key": "lambda out: [item for item in out['records'] if item['name'] == 'Guglielmo Pepe']",
+            "value": "1858",
+            "pred": "lambda key, value: key[0]['start_date'] == value"
+        }
+    ]
+}

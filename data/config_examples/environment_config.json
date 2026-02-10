@@ -1,0 +1,22 @@
+{
+  "description": "OSWorld Desktop Environment Configurations - Docker Provider (API mode)",
+  "desktop_configs": [
+    {
+      "desktop_id": "osworld_desktop_01",
+      "description": "OSWorld Desktop instance 1 - Docker provider via API",
+      "provider_name": "docker",
+      "action_space": "pyautogui",
+      "snapshot_name": "init_state",
+      "screen_width": 1920,
+      "screen_height": 1080,
+      "headless": false,
+      "os_type": "Ubuntu",
+      "enable_proxy": false,
+      "observation_type": "screenshot",
+      "client_password": "password",
+      "api_base_url": "http://IP:10473",
+      "api_token": "3eb40e28-8f12-4b95-b9dd-743ea98334a9"
+    }
+  ]
+}
+

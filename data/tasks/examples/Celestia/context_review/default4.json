@@ -1,0 +1,28 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "You are given access to a software application in its current state. Your task is to actively and read-only explore the application to understand the full user context, including multiple distinct content areas, views, or sections, not just a single default view. You must navigate into and inspect representative content from each major content-bearing area (e.g., different folders, tabs, panels, lists, or sections) to verify what information exists and how it differs across areas. Do not modify, create, delete, send, save, or trigger any actions that persist changes. You must not finish after exploring only one section or view; only finish after you have reasonably covered the breadth of the application’s content space.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["30.5"]
+        }
+    ],
+    "ans": "ANS 30.5"
+}

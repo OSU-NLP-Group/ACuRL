@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem MT_3 {a b : ℝ} {μ : Measure <| Icc a b} (f_ : ℕ → Icc a b → ℝ) (f : Icc a b → ℝ) (g : ℝ → ℝ) (h₁ : TendstoInMeasure μ f_ atTop f) (h₂ : ∃ M : ℝ, ∀ x : Icc a b, |f x| < M) (h₃ : ContinuousOn g univ) : TendstoInMeasure μ (fun n => g ∘ (f_ n)) atTop (g ∘ f) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Set", "MeasureTheory", "Filter"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem MT_3 {a b : ℝ} {μ : Measure <| Icc a b} (f_ : ℕ → Icc a b → ℝ) (f : Icc a b → ℝ) (g : ℝ → ℝ) (h₁ : TendstoInMeasure μ f_ atTop f) (h₂ : ∃ M : ℝ, ∀ x : Icc a b, |f x| < M) (h₃ : ContinuousOn g univ) : TendstoInMeasure μ (fun n => g ∘ (f_ n)) atTop (g ∘ f) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

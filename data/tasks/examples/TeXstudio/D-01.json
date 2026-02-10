@@ -1,0 +1,29 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Read the document and submit your answer: the value of BB(4).",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Title \\par}\n\\bigskip\\noindent\n\nThe Busy Beaver function, BB($n$), captures the maximum number of steps an n-state Turing machine can make on a blank tape before halting, provided it halts. It's famous for growing faster than any computable function, making it non-computable and tightly linked to the limits of what machines can decide.\n\nFor a long time, the exact values of BB were only known for small n. It was well established that BB(4) = 13, but BB(5) remained a mystery for decades. Recent research has now shown that BB(5) = 4098, a huge leap that highlights just how explosively the function grows. This result not only advances our understanding of Turing machines but also deepens the connections between computation, logic, and undecidability.\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["13"]
+        }
+    ],
+    "ans": "ANS 13"
+}

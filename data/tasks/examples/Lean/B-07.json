@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem AA_3 {K E F : Set α} [Field K] [Field E] [Field F] [Algebra F E] [Algebra F K] (h₁ : F ⊆ E) (h₂ : E ⊆ K) (h₃ : Normal F K) : Nonempty (Algebra E K) ∧ ([Algebra E K] → (Normal E K)) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem AA_3 {K E F : Set α} [Field K] [Field E] [Field F] [Algebra F E] [Algebra F K] (h₁ : F ⊆ E) (h₂ : E ⊆ K) (h₃ : Normal F K) : Nonempty (Algebra E K) ∧ ([Algebra E K] → (Normal E K)) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

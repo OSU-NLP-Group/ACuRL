@@ -1,0 +1,62 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Let current lighting to be ambient in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "251d"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "states",
+            "key": "_state_containers.models._models.(1,)._atoms_drawing._draw_shape.bindings._opengl_context.window.view._render.lighting.ambient_light_intensity",
+            "value": 1.5
+        },
+        {
+            "type": "states",
+            "key": "_state_containers.models._models.(1,)._atoms_drawing._draw_shape.bindings._opengl_context.window.view._render.lighting.multishadow_depth_bias",
+            "value": 0.01
+        },
+        {
+            "type": "states",
+            "key": "_state_containers.models._models.(1,)._atoms_drawing._draw_shape.bindings._opengl_context.window.view._render.silhouette.depth_jump",
+            "value": 0.03
+        }
+    ]
+}

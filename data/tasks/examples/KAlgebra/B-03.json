@@ -1,0 +1,32 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Delete the trifolium curve in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 1
+        },
+        {
+            "func": "func_2d",
+            "expr": "q->6*sin(3*q)"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": "#SIZE",
+            "value": 0
+        }
+    ],
+    "ans": "N/A"
+}

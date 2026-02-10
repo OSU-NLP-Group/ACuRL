@@ -1,0 +1,38 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Set the auto magnitude limit at 45 degrees to 9.0 and show labels for stars and open clusters in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['autoMagnitude']",
+            "value": 9.0,
+            "pred": "lambda key, value: abs(key - value) < 0.01"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['label']['star']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['label']['openCluster']",
+            "value": true
+        }
+    ]
+}

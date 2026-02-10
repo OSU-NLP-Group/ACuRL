@@ -1,0 +1,44 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Change and only change with of figs/envelope to 0.48 in TeXstudio.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass{article}\n\n\\usepackage[bottom]{footmisc}\n\\usepackage{float}\n\\usepackage{sidecap}\n\\usepackage{multirow}\n\\usepackage{parskip}\n\n\\usepackage[margin=1.25in]{geometry}\n\\usepackage[utf8]{inputenc}\n\\usepackage[T1]{fontenc}\n\\usepackage{url}\n\\usepackage{booktabs}\n\\usepackage{amsfonts}\n\\usepackage{nicefrac}\n\\usepackage{microtype}\n\\usepackage{kpfonts}\n\\usepackage{graphicx}\n\\usepackage{multicol}\n\\usepackage{enumitem}\n\n\\usepackage[small]{caption}\n\\captionsetup{\n  labelsep=period\n}\n\n\\usepackage[table]{xcolor}\n\\definecolor{codegreen}{rgb}{0,0.6,0}\n\\definecolor{codeblue}{rgb}{0,0.28,0.67}\n\\definecolor{codegray}{rgb}{0.3607843137, 0.4823529412, 0.5725490196}\n\\definecolor{backcolour}{rgb}{0.9882352941, 0.9725490196, 0.9294117647}\n\n\\usepackage{hyperref}\n\\hypersetup{\n    colorlinks,\n    linkcolor={codeblue},\n    citecolor={codeblue},\n    urlcolor={codeblue}\n}\n\n\\usepackage[scaled]{beramono}\n\\usepackage{lipsum}\n\\usepackage{listings}\n\n\\lstdefinestyle{mystyle}{\n    escapechar=\\%,\n    backgroundcolor=\\color{backcolour},   \n    commentstyle=\\color{codegray},\n    keywordstyle=\\color{codeblue},\n    basicstyle=\\ttfamily\\small,\n    breakatwhitespace=false,         \n    breaklines=true,                 \n    captionpos=b,                    \n    keepspaces=true,                 \n    numbers=left,                    \n    numbersep=5pt,                  \n    showspaces=false,                \n    showstringspaces=false,\n    showtabs=false,                  \n    tabsize=2\n}\n\\lstset{style=mystyle}\n\n\\usepackage{amsthm}\n\\newtheorem{theorem}{Theorem}\n\\newtheorem{fact}{Fact}\n\n\\usepackage{setspace}\n\\interfootnotelinepenalty=1000000\n\n\\title{\\Large\n    LaTeX Template: \\\\\n    Second Line of Title\n    \\vspace{0.5ex}\n}\n\n\\author{\n    \\normalsize\n    A.SAKA\\thanks{~Rearranged from \\href{https://arxiv.org/abs/2407.04620}{ArXiV 2407.04620}}\n}\n\\date{}\n\n\\nocite{arai2020ordinal}\n\n\\begin{document}\n\\maketitle\n\n\\begin{abstract}\n    \\noindent\n    \\lipsum[1]\n\\end{abstract}\n\\vspace{5ex}\n\n\\section{Introduction}\n\\label{intro}\n\n\\paragraph{Instance of General Paragraph} \n\\lipsum[2]\n\\begin{enumerate}[leftmargin=*]\n    \\item \\lipsum[3][1-6]\n    \\item \\lipsum[4][1-5]\n    \\item \\lipsum[5][1-10]\n\\end{enumerate}\n\nInstance of \\textbf{bold font} or \\emph{emphasis}.\n\nInstance of referencing Section~\\ref{sec:method}, Subsection~\\ref{subsec:first} and Appendix~\\ref{app:first}; instance of citing with brackets (Kanamori et. al~\\cite{kanamori2008higher}), citing directly~\\cite{leanfp} and introducing a footnote \\footnote{\\label{footnote:1} Footnote content.}.\n\n% Instance of referencing Section~\\ref{sec:exp}, referencing Figure~\\ref{fig:teaser},  \n\n\\section{Method}\n\\label{sec:method}\n\\subsection{Subsection One}\n\\label{subsec:first}\n\nInstance of inline formula $z_t = f(x_t; W_t)$, display math\n$$\nW_t = W_{t-1} - \\eta\\,\\nabla\\ell(W_{t-1}; x_t)\n$$\nand tagged equation\n\\begin{equation}\n    \\label{eq:tagged}\n    \\ell(W; x_t) = \\| f(\\tilde{x}_t; W) - x_t \\|^2.\n\\end{equation}\nwith reference to Equation~\\ref{eq:tagged}.\n\n\\subsection{Subsection Two}\n\\label{subsec:second}\n\n\\begin{figure}[h]\n\\vspace{-1ex}\n    \\centering\n    \\renewcommand{\\arraystretch}{1.8}\n    \\begin{tabular}{|l|l|l|l|l|}\n    \\hline\n    & \\textbf{Initial state}\n    & \\textbf{Update rule}\n    & \\textbf{Output rule}\n    & \\textbf{Cost}\\\\\n    \\hline\n    \\textbf{Naive RNN} & $s_0 = \\texttt{vector()}$ \n    & $s_t = \\sigma\\left(\\theta_{ss}s_{t-1} + \\theta_{sx}x_t \\right)$ \n    & $z_t = \\theta_{zs}s_t + \\theta_{zx}x_t$ \n    & $O(1)$ \\\\\n    \\textbf{Self-attention} & $s_0 = \\texttt{list()}$ \n    & $s_t = s_{t-1}.\\texttt{append}(k_t, v_t)$ \n    & $z_t = V_t\\texttt{softmax}\\left(K^T_tq_t\\right)$\n    & $O(t)$ \\\\\n    \\textbf{Naive TTT} & $W_0 = f.\\texttt{params()}$\n    & $W_t = W_{t-1} - \\eta\\nabla\\ell(W_{t-1}; x_t)$\n    & $z_t = f(x_t; W_t)$\n    & $O(1)$ \\\\\n    \\hline\n    \\end{tabular}\n    \\vspace{1ex}\n    \\caption{Instance of Table}\n    \\label{fig:table}\n\\end{figure}\n\nInstance of referencing Figure~\\ref{fig:table}.\n\n\\section{Experiments}\n\\label{sec:exp}\n\n\\input{code}\n\n\\section{Discussion}\n\\lipsum[6]\n\n\\begin{figure}[h]\n    \\centering\n    \\includegraphics[width=0.49\\textwidth]{figs/envelope.pdf}\n    \\includegraphics[width=0.49\\textwidth]{figs/token.pdf}\n    \\caption{Instance of Figure with Bottom Caption}\n    \\label{fig:teaser}\n\\end{figure}\n\n\\begin{figure}[h]\n    \\centering\n    \\vspace{-2ex}\n    \\begin{minipage}{0.43\\textwidth}\n    \\includegraphics[width=0.95\\textwidth]{figs/latency.pdf}\n    \\end{minipage}\n    \\begin{minipage}{0.55\\textwidth}\n    \\vspace{1ex}\n    \\caption{Instance of Figure with Side Caption}\n    \\label{fig:time}\n    \\end{minipage}\n\\end{figure}\n\n\\section*{Acknowledgements}\n\\lipsum[7]\n\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\clearpage\n\n\\appendix\n\\section{Appendix}\n\\label{app:first}\n\\lipsum[8]\n\n\\section{Another Appendix}\n\\label{app:second}\n\\lipsum[9]\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "touch",
+            "text": "\\begin{figure}[h]\n\\begin{lstlisting}[\n  % multicols=2,\n  framexleftmargin=2ex,\n  xleftmargin=4ex,\n  framexrightmargin=2ex,\n  xrightmargin=4ex,\n  numbers=none,\n  language=Python, \n]\nclass TTT_Layer(nn.Module):\n  def __init__(self):\n    self.task = Task()\n\n  def forward(self, in_seq):\n    state = Learner(self.task)\n    out_seq = []\n    for tok in in_seq:\n      state.train(tok)\n      out_seq.append(state.predict(tok))\n    return out_seq\n\\end{lstlisting}\n\\vspace{1.5ex}\n\\caption{Instance of Code Blocks}\n\\label{fig:code}\n\\end{figure}\n",
+            "path": "/home/user/atelier/code.tex"
+        },
+        {
+            "func": "touch",
+            "text": "@book{kanamori2008higher,\n  title={The higher infinite: large cardinals in set theory from their beginnings},\n  author={Kanamori, Akihiro},\n  year={2008},\n  publisher={Springer Science \\& Business Media}\n}\n\n@book{arai2020ordinal,\n  title={Ordinal analysis with an introduction to proof theory},\n  author={Arai, Toshiyasu},\n  year={2020},\n  publisher={Springer}\n}\n\n@misc{leanfp,\n  title={Functional Programming in Lean},\n  author={David Thrane Christiansen},\n  howpublished={\\url{https://lean-lang.org/functional_programming_in_lean/}}\n}\n",
+            "path": "/home/user/atelier/refs.bib"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/refs.bib /home/user/atelier/code.tex /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "\\includegraphics[width=0.49\\textwidth]{figs/envelope.pdf}",
+            "target": "\\includegraphics[width=0.48\\textwidth]{figs/envelope.pdf}"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

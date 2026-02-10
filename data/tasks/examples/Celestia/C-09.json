@@ -1,0 +1,28 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "What is the apparent magnitude of the galaxy closest to the milky way? Submit your answer with two decimal places.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["4.47"]
+        }
+    ],
+    "ans": "ANS 4.47"
+}

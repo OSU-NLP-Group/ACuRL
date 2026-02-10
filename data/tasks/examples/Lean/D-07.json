@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem MT_4 [MeasureSpace Ω] [IsProbabilityMeasure (ℙ : Measure Ω)] (X : Ω → ℝ) {p : ℕ} {X : Ω → ℝ} (h₁ : p > 0) (h₂ : Integrable X) (h₃ : ∃ M : ℝ, 𝔼[fun ω => |X ω| ^ p] = M) : Tendsto (fun (x : ℝ) => (x ^ p) * (ℙ {ω : Ω | |X ω| > x}).toReal) atTop (𝓝 0) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["MeasureTheory", "ProbabilityTheory", "Filter", "Topology"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem MT_4 [MeasureSpace Ω] [IsProbabilityMeasure (ℙ : Measure Ω)] (X : Ω → ℝ) {p : ℕ} {X : Ω → ℝ} (h₁ : p > 0) (h₂ : Integrable X) (h₃ : ∃ M : ℝ, 𝔼[fun ω => |X ω| ^ p] = M) : Tendsto (fun (x : ℝ) => (x ^ p) * (ℙ {ω : Ω | |X ω| > x}).toReal) atTop (𝓝 0) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

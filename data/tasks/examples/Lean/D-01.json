@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem AP_1 (A : ℝ) (f : ℝ → ℝ) (h₁ : A > 0) (h₂ : Tendsto f atBot (𝓝 A)) : ∃ X : ℝ, X > 0 ∧ (∀ x < -X, A < 2 * f x ∧ 2 * f x < 3 * A) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Filter", "Topology"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem AP_1 (A : ℝ) (f : ℝ → ℝ) (h₁ : A > 0) (h₂ : Tendsto f atBot (𝓝 A)) : ∃ X : ℝ, X > 0 ∧ (∀ x < -X, A < 2 * f x ∧ 2 * f x < 3 * A) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Find the angle between /A GLN4 OE1, OXT and GLN 3 OE1 in ChimeraX and fill it in the article shown in TeXstudio replacing the placeholder of 'xxx.xx'.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Bond Angles in Protein Structures \\par}\n\\bigskip\\noindent\n\nBond angles between atoms in proteins play a crucial role in determining their three-dimensional conformation and, consequently, their function. These angles, particularly between atoms of adjacent residues or functional groups, are influenced by steric constraints, electronic interactions, and the chemical nature of the amino acids involved.\n\nFor instance, in the crystal structure of the protein with PDB ID 3PPD, the angle formed between the atoms /A GLN4 OE1, OXT, and GLN3 OE1 is approximately xxx.xx degrees. This specific angle reflects the spatial arrangement of terminal and side-chain oxygen atoms, which may be involved in hydrogen bonding or electrostatic interactions, contributing to local stability within the protein structure. Such geometric information is essential for understanding protein folding, interactions, and for applications in molecular modeling and drug design.\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "chimerax_clear_log"
+        },
+        {
+            "func": "chimerax_open",
+            "name": "2olx"
+        },
+        {
+            "func": "chimerax_turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "xxx.xx",
+            "target": "109.03"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

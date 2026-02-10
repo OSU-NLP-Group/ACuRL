@@ -1,0 +1,29 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Read the document and submit your answer: the value of B(5).",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\nIn combinatorial mathematics, the Bell numbers count the possible partitions of a set. These numbers have been studied by mathematicians since the 19th century, and their roots go back to medieval Japan. In an example of Stigler's law of eponymy, they are named after Eric Temple Bell, who wrote about them in the 1930s.\n\n\\begin{figure}[h]\n    \\vspace{-1ex}\n    \\centering\n    \\renewcommand{\\arraystretch}{1.8}\n    \\begin{tabular}{|c|c|c|c|c|c|c|}\n    \\hline\n    $B(0)$\n    & $B(1)$\n    & $B(2)$\n    & $B(3)$\n    & $B(4)$\n    & $B(5)$\n    & $B(6)$ \\\\\n    \\hline\n    $1$\n    & $1$\n    & $2$\n    & $5$\n    & $15$\n    & $52$\n    & $203$ \\\\\n    \\hline\n    \\end{tabular}\n    \\vspace{1ex}\n    \\caption{Instances of the Bell Numbers}\n\\end{figure}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["52"]
+        }
+    ],
+    "ans": "ANS 52"
+}

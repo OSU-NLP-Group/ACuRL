@@ -1,0 +1,33 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Hide Mercury in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Mercury",
+            "type": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Mercury']['hidden']",
+            "value": true
+        }
+    ]
+}

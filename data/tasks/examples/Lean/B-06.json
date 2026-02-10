@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem AA_2 [Ring R] (N : Ideal R) [DivisionRing (R ⧸ N)] (a : R) : (∃ t : N, t = a * a) → (∃ t' : N, t' = a) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem AA_2 [Ring R] (N : Ideal R) [DivisionRing (R ⧸ N)] (a : R) : (∃ t : N, t = a * a) → (∃ t' : N, t' = a) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

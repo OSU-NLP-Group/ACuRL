@@ -1,0 +1,64 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Select all water molecules and draw their centroids featured with radius of 1Å in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "4tut"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "sel",
+            "value": [
+                "atom id #!1/A:201@O idatm_type O3",
+                "atom id #!1/A:202@O idatm_type O3",
+                "atom id #!1/A:203@O idatm_type O3",
+                "atom id #!1/A:204@O idatm_type O3",
+                "atom id #!1/A:205@O idatm_type O3"
+            ]
+        },
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('._name') and value == 'centroid'",
+            "key": "lambda key: '.'.join(key.split('.')[:-1] + ['_atoms_drawing', '_positions', '_shift_and_scale'])",
+            "value": "[[13.0012  1.7766 21.3672  1.    ]]"
+        }
+    ]
+}

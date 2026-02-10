@@ -1,0 +1,39 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The citation of Lean 4 has been written in refs.bib. Please fill \\cite in main.tex with it in TeXstudio without modifying .bib file.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Lean 4 \\par}\n\\bigskip\\noindent\n\nLean is a functional programming language that makes it easy to write correct and maintainable code. \\cite{} You can also use Lean as an interactive theorem prover. Lean programming primarily involves defining types and functions. This allows your focus to remain on the problem domain and manipulating its data, rather than the details of programming.\n\nThe Lean project was launched by Leonardo de Moura when he was at Microsoft Research in 2013. It is an open source project, hosted on GitHub. Lean 4 is the latest version. For installing Lean 4, please see Download. Information about the community of Lean users and the mathematical components library Mathlib can be found at the Lean Community website. The Lean FRO nonprofit was launched in August of 2023. Its mission is to tackle the challenges of scalability, usability, and proof automation in the Lean theorem prover.\n\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "touch",
+            "text": "@inproceedings{de2015lean,\n  title={The Lean theorem prover (system description)},\n  author={De Moura, Leonardo and Kong, Soonho and Avigad, Jeremy and Van Doorn, Floris and von Raumer, Jakob},\n  booktitle={Automated Deduction-CADE-25: 25th International Conference on Automated Deduction, Berlin, Germany, August 1-7, 2015, Proceedings 25},\n  pages={378--388},\n  year={2015},\n  organization={Springer}\n}\n",
+            "path": "/home/user/atelier/refs.bib"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/refs.bib /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "\\cite{}",
+            "target": "\\cite{de2015lean}"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem AP_3 {a b : ℝ} (f : ℝ → ℝ) (h₁ : ContinuousOn f (Icc a b)) (h₂ : (∫ x in a..b, (f x) ^ 2) = 0) : ∀ x ∈ Icc a b, f x = 0 := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Set"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem AP_3 {a b : ℝ} (f : ℝ → ℝ) (h₁ : ContinuousOn f (Icc a b)) (h₂ : (∫ x in a..b, (f x) ^ 2) = 0) : ∀ x ∈ Icc a b, f x = 0 := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Modify the formula of the document in TeXstudio till it can be successfully compiled.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\\usepackage{amsmath}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Definition of Ackermann Function \\par}\n\\bigskip\\noindent\n\n$$\n\\begin{aligned}\n    A(Y_1, [X, 0], Y_2) & = A(Y_1, Y_2) \\\\\n    A(Y_1, [Z, X], Y_2) & = A(Y_1, [X], Y_2) \\\\\n    A([a]) & = a+1 \\\\\n    A(Y, [1, b+1]) & = A(Y, [1, b], [1]) \\\\\n    A(Y, [1, b+1], [a+1]) & = A( Y, [1, b], [A(Y, [1, b+1], [a])] ) \\\\\n    A(Y, [X, c+1, b+1], [a]) & = A(Y, [X, c+1, b], [X, c, a], [a]), X \\neq Z \\or c \\neq 0 \\\\\n    A(Y, [X, c+1, 0, Z, b+1], [a]) & = A(Y, [X, c+1, 0, Z, b], [X, c, a, Z, a], [a])\n\\end{aligned}\n$$\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ],
+    "ans": "\\or -> \\vee"
+}

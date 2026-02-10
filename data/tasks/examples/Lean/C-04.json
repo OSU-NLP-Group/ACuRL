@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem TP_4 [𝒯₁ : TopologicalSpace X] [𝒯₂ : TopologicalSpace X] (h : ∀ x : Set X, 𝒯₁.IsOpen x → 𝒯₂.IsOpen x) : (@T0Space X 𝒯₁ → @T0Space X 𝒯₂) ∧ (@T1Space X 𝒯₁ → @T1Space X 𝒯₂) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem TP_4 [𝒯₁ : TopologicalSpace X] [𝒯₂ : TopologicalSpace X] (h : ∀ x : Set X, 𝒯₁.IsOpen x → 𝒯₂.IsOpen x) : (@T0Space X 𝒯₁ → @T0Space X 𝒯₂) ∧ (@T1Space X 𝒯₁ → @T1Space X 𝒯₂) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

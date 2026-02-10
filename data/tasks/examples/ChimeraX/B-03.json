@@ -1,0 +1,53 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Identify all hydrogen bonds colored in rgb(139, 0, 0) with distance tolerance of 0.6Å in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-* /home/user/.config/ChimeraX/H-bond\\ GUI-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "4tut"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('._name') and value == 'hydrogen bonds'",
+            "key": "lambda key: '.'.join(key.split('.')[:-1] + ['_pbond_drawing', '_colors'])",
+            "value": "[[139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255] [139   0   0 255]]"
+        }
+    ]
+}

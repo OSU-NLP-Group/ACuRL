@@ -1,0 +1,40 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The Lean 4 code shown in TeXstudio is erroneous; try to correct it by modifying exact one word. You may use VS Code supplied to debug.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        },
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\\usepackage{listings}\n\\usepackage[table]{xcolor}\n\\UseRawInputEncoding\n\\definecolor{codegreen}{rgb}{0,0.6,0}\n\\definecolor{codeblue}{rgb}{0,0.28,0.67}\n\\definecolor{codegray}{rgb}{0.3607843137, 0.4823529412, 0.5725490196}\n\\definecolor{backcolour}{rgb}{0.9882352941, 0.9725490196, 0.9294117647}\n\n\\usepackage{hyperref}\n\\hypersetup{\n    colorlinks,\n    linkcolor={codeblue},\n    citecolor={codeblue},\n    urlcolor={codeblue}\n}\n\n\\lstdefinestyle{mystyle}{\n    escapechar=\\%,\n    backgroundcolor=\\color{backcolour},\n    commentstyle=\\color{codegray},\n    keywordstyle=\\color{codeblue},\n    basicstyle=\\ttfamily\\small,\n    breakatwhitespace=false,\n    breaklines=true,\n    captionpos=b,\n    keepspaces=true,\n    numbers=left,\n    numbersep=5pt,\n    showspaces=false,\n    showstringspaces=false,\n    showtabs=false,\n    tabsize=2\n}\n\\lstset{style=mystyle}\n\n\\begin{document}\n\n\\begin{figure}[h]\n\\begin{lstlisting}[\n  % multicols=2,\n  framexleftmargin=2ex,\n  xleftmargin=4ex,\n  framexrightmargin=2ex,\n  xrightmargin=4ex,\n  numbers=none,\n  language=Python,\n]\ntheorem TP_3\n  [TopologicalSpace X]\n  [TopologicalSpace Y]\n  (f : X -> Y)\n  (Z : Set X)\n  (h_1 : Continuous f)\n  (h_2 : IsConnected Z)\n  : IsConnected {y : Y | \u2203 z \u2208 Z, f z = y}\n  := by\n  apply IsConnected.img\n  exact h_2\n  exact h_1.continuousOn\n\\end{lstlisting}\n\\vspace{1.5ex}\n\\label{fig:code}\n\\end{figure}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "IsConnected.img",
+            "target": "IsConnected.image"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Find the paper named 'A New Method in the Problem of Three Cubes' via Google Scholar and copy its BibTeX to refs.bib.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Sums of Three Cubes \\par}\n\\bigskip\\noindent\n\nThe problem of expressing integers as the sum of three integer cubes\u2014finding integer solutions to the Diophantine equation\n\n$$\nx^3+y^3+z^3=k\n$$\n\nfor a given integer $k$\u2014is a classic and deceptively simple problem in number theory. Despite its elementary appearance, the equation poses deep challenges and has intrigued mathematicians for decades. For some values of kk, such as those congruent to 4 or 5 modulo 9, no solutions exist due to simple modular constraints. However, for other integers, especially small ones like $k=33$ or $k=42$, finding solutions has proven to be computationally intensive and analytically elusive.\n\nRecent advances have revitalized interest in the problem. Notably, a new approach \\cite{avagyan2018new} introduces innovative methods for tackling this equation. Avagyan's technique offers fresh insights and computational strategies that build on both algebraic manipulation and numerical analysis, potentially paving the way for discovering solutions to previously unresolved cases. The continuing search for solutions, especially using modern computational power combined with novel mathematical frameworks, highlights the enduring richness of the problem and its relevance in contemporary number theory.\n\n\\nocite{kanamori2008higher}\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "touch",
+            "text": "@book{kanamori2008higher,\n  title={The higher infinite: large cardinals in set theory from their beginnings},\n  author={Kanamori, Akihiro},\n  year={2008},\n  publisher={Springer Science \\& Business Media}\n}\n",
+            "path": "/home/user/atelier/refs.bib"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/refs.bib /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "include",
+            "path": "/home/user/atelier/refs.bib",
+            "pattern": "@article\\{avagyan2018new"
+        },
+        {
+            "type": "include",
+            "path": "/home/user/atelier/refs.bib",
+            "pattern": "title=\\{A New Method in the Problem of Three Cubes\\}"
+        },
+        {
+            "type": "include",
+            "path": "/home/user/atelier/refs.bib",
+            "pattern": "author=\\{Avagyan, Armen and Dallakyan, Gurgen\\}"
+        },
+        {
+            "type": "include",
+            "path": "/home/user/atelier/refs.bib",
+            "pattern": "journal=\\{arXiv preprint arXiv:1802.06776\\}"
+        },
+        {
+            "type": "include",
+            "path": "/home/user/atelier/refs.bib",
+            "pattern": "year=\\{2018\\}"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

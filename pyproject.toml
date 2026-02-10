@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# Distribution name (can be different from import package name `verl`)
+name = "acurl"
+dynamic = ["version"]
+description = "ACuRL release (vendored verl + agent_system)"
+requires-python = ">=3.10"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+# Read version from the vendored verl version file
+version = {file = "verl/version/version"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["verl*", "agent_system*"]
+
+[tool.setuptools.package-data]
+verl = [
+  "version/version",
+  "trainer/config/*.yaml",
+  "py.typed",
+]
+
+

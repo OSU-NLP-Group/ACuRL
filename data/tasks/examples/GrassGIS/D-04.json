@@ -1,0 +1,49 @@
+{
+    "type": "GrassGIS",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "There is a point located in the Mediterranean Sea. Please find and delete it.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/world_latlong_wgs84/PERMANENT\"",
+            "shell": true
+        },
+        {
+            "func": "map",
+            "grassdb": "/home/user/grassdata",
+            "location": "natural_earth_dataset",
+            "mapset": "PERMANENT"
+        },
+        {
+            "func": "layer",
+            "wait": 5,
+            "query": {
+                "name": "countries"
+            }
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "db",
+            "cmd": "v.to.db",
+            "kwargs": {
+                "flags": "p",
+                "map": "countries@PERMANENT",
+                "type": "point",
+                "option": "coor"
+            },
+            "key": "lambda out: out.strip()",
+            "value": "cat|x|y|z\n257|-79.1050308691105|8.348947891274|0",
+            "pred": "lambda key, value: key == value"
+        }
+    ]
+}

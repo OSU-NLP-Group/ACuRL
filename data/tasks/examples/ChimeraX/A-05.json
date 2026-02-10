@@ -1,0 +1,75 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Select all ligand(s) and color them into magenta in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "1dns"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "sel",
+            "value": [
+                "atom id /A:9@N1 idatm_type N3+",
+                "atom id /A:9@C2 idatm_type C3",
+                "atom id /A:9@C3 idatm_type C3",
+                "atom id /A:9@C4 idatm_type C3",
+                "atom id /A:9@N5 idatm_type N3+",
+                "atom id /A:9@C6 idatm_type C3",
+                "atom id /A:9@C7 idatm_type C3"
+            ]
+        },
+        {
+            "type": "info",
+            "key": "rescolor /A",
+            "value": [
+                "#1/A:1 color #d2b48c",
+                "#1/A:2 color #d2b48c",
+                "#1/A:3 color #d2b48c",
+                "#1/A:4 color #d2b48c",
+                "#1/A:5 color #d2b48c",
+                "#1/A:6 color #d2b48c",
+                "#1/A:7 color #d2b48c",
+                "#1/A:8 color #d2b48c",
+                "#1/A:9 color #ff00ff"
+            ]
+        }
+    ]
+}

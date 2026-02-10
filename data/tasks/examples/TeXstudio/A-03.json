@@ -1,0 +1,69 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The DNA sequence of Chain A written in TeXstudio is erroneous. Please find the correct answer in ChimeraX and replace the wrong one with it.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\nDNA, or deoxyribonucleic acid, is the hereditary material in nearly all living organisms, carrying the genetic instructions used in growth, development, and functioning. It is composed of four nucleotide bases\u2014adenine (A), thymine (T), cytosine (C), and guanine (G)\u2014that pair specifically to form a double helix structure. Each segment of DNA, known as a sequence, holds vital information that can be used to code for proteins and regulate biological processes. For example, in the DNA structure of protein complex 251D, the sequence found in Chain A is TGCCAT, a short but meaningful stretch of nucleotides that could contribute to the biological function of the molecule.\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "chimerax_clear_log"
+        },
+        {
+            "func": "chimerax_open",
+            "name": "251d"
+        },
+        {
+            "func": "chimerax_turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "TGCCAT",
+            "target": "CTCGAG"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

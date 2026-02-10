@@ -1,0 +1,67 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Display atom in sphere style and color them by chain in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "3ppd"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "states",
+            "key": "_state_containers.models._models.(1,)._redraw_needed.cached_drawing_bounds.xyz_min",
+            "value": "[ -1.37   -6.882 -12.582]"
+        },
+        {
+            "type": "info",
+            "key": "rescolor /A",
+            "value": [
+                "#1/A:1 color #7b68ee",
+                "#1/A:2 color #7b68ee",
+                "#1/A:3 color #7b68ee",
+                "#1/A:4 color #7b68ee",
+                "#1/A:5 color #7b68ee",
+                "#1/A:6 color #7b68ee",
+                "#1/A:7 color #7b68ee",
+                "#1/A:8 color #7b68ee",
+                "#1/A:9 color #7b68ee"
+            ]
+        }
+    ]
+}

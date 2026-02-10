@@ -1,0 +1,69 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Find the name of residue id /A:6 in ChimeraX and fill it in the table of the article shown in TeXstudio replacing the placeholder of '???'.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\begin{figure}[h]\n    \\vspace{-1ex}\n    \\centering\n    \\renewcommand{\\arraystretch}{1.8}\n    \\begin{tabular}{|l|l|l|}\n        \\hline \\textbf{Residue ID} & \\textbf{Name} & \\textbf{Index} \\\\\n        \\hline \\textbf{/A:1} & GLY & 0 \\\\\n        \\hline \\textbf{/A:2} & GLY & 1 \\\\\n        \\hline \\textbf{/A:3} & VAL & 2 \\\\\n        \\hline \\textbf{/A:4} & LEU & 3 \\\\\n        \\hline \\textbf{/A:5} & VAL & 4 \\\\\n        \\hline \\textbf{/A:6} & ??? & 5 \\\\\n        \\hline \\textbf{/A:7} & ZN & \\\\\n        \\hline \\textbf{/A:8} & ACY & \\\\\n        \\hline \\textbf{/A:9} & HOH & \\\\\n        \\hline\n    \\end{tabular}\n    \\vspace{1ex}\n    \\caption{Residues Information of 3PPD}\n\\end{figure}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "chimerax_clear_log"
+        },
+        {
+            "func": "chimerax_open",
+            "name": "3ppd"
+        },
+        {
+            "func": "chimerax_turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "???",
+            "target": "ASN"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

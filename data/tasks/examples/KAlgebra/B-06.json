@@ -1,0 +1,55 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Change the style of the given surface into 'Lines' in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 2
+        },
+        {
+            "func": "func_3d",
+            "expr": "x^2-y^2=2"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-11.69, 13.31, 3.4411291397060784],
+                [-3, -10.48, 0],
+                [-3, -14, 0.07286936560769992],
+                [-6.58, 20, -358.7036],
+                [-7, -10.5, -5],
+                [-9, -6.03, -3.6387795764136173],
+                [10, -22.88, 0],
+                [16, -3, 245],
+                [27.82, 1.4, 0],
+                [3, -5, -18]
+            ],
+            "value": {
+                "(-11.69, 13.31, 3.4411291397060784)": false,
+                "(-3, -10.48, 0)": false,
+                "(-3, -14, 0.07286936560769992)": false,
+                "(-6.58, 20, -358.7036)": true,
+                "(-7, -10.5, -5)": false,
+                "(-9, -6.03, -3.6387795764136173)": false,
+                "(10, -22.88, 0)": false,
+                "(16, -3, 245)": true,
+                "(27.82, 1.4, 0)": false,
+                "(3, -5, -18)": true,
+                "style": 2
+            }
+        }
+    ],
+    "ans": "N/A"
+}

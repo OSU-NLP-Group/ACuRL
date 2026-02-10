@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem DM_3 {L : Language} [L.Structure M₁] [L.Structure M₂] (h : M₁ ≅[L] M₂) : ∃ N : Bundled L.Structure, Nonempty (M₁ ↪ₑ[L] N) ∧ Nonempty (M₂ ↪ₑ[L] N) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["CategoryTheory", "FirstOrder"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem DM_3 {L : Language} [L.Structure M₁] [L.Structure M₂] (h : M₁ ≅[L] M₂) : ∃ N : Bundled L.Structure, Nonempty (M₁ ↪ₑ[L] N) ∧ Nonempty (M₂ ↪ₑ[L] N) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

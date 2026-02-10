@@ -1,0 +1,28 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Answer the question: what is the name of the only star typed in G0?",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["TYC", "2082-2143-1"]
+        }
+    ],
+    "ans": "ANS TYC 2082-2143-1"
+}

@@ -1,0 +1,48 @@
+{
+    "type": "GrassGIS",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Move the center point to 25°E, 20°N in Grass GIS.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/world_latlong_wgs84/PERMANENT\"",
+            "shell": true
+        },
+        {
+            "func": "map",
+            "grassdb": "/home/user/grassdata",
+            "location": "natural_earth_dataset",
+            "mapset": "PERMANENT"
+        },
+        {
+            "func": "layer",
+            "wait": 5,
+            "query": {
+                "name": "countries"
+            }
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['center_easting']",
+            "value": 25,
+            "pred": "lambda key, value: abs((key % 360) - value) < 0.1"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['center_northing']",
+            "value": 20,
+            "pred": "lambda key, value: abs(key - value) < 0.1"
+        }
+    ]
+}

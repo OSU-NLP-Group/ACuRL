@@ -1,0 +1,24 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Calculate the value of log_2(3) in KAlgebra and store the result in variable `p`.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "val",
+            "key": "p",
+            "value": 1.58496250072
+        }
+    ],
+    "ans": "p := log(3)/log(2)"
+}

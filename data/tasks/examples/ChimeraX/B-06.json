@@ -1,0 +1,59 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Toggle a scale bar of length 10 and thinkness 4 in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        },
+        {
+            "func": "open",
+            "name": "102l"
+        },
+        {
+            "func": "turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('drawing._name') and value == 'scalebar'",
+            "key": "lambda key: '.'.join(key.split('.')[:-2] + ['scalebar_width'])",
+            "value": 10.0
+        },
+        {
+            "type": "states",
+            "find": "lambda key, value: key.endswith('drawing._name') and value == 'scalebar'",
+            "key": "lambda key: '.'.join(key.split('.')[:-2] + ['scalebar_height'])",
+            "value": 4.0
+        }
+    ]
+}

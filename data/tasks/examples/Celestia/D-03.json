@@ -1,0 +1,28 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "What is the difference value in viewing angle between the Sun and the Earth when viewed from Mars on May 28, 2150? Submit your answer with one decimal place.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["30.5"]
+        }
+    ],
+    "ans": "ANS 30.5"
+}

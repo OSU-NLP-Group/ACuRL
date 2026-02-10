@@ -1,0 +1,34 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Shown in TeXstudio is deduction rules of λC system of type theory with a typo. Correct it by modifying EXACT ONE letter in the document.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\\usepackage{amssymb}\n\\usepackage{bussproofs}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Rules of $\\lambda$-cube \\par}\n\\bigskip\\noindent\n\n(sort)\n$$\\varnothing \\vdash *: \\square$$\n\n(var)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma \\vdash A: s\\)}\n    \\UnaryInfC{\\(\\Gamma, x: A \\vdash x: A\\)}\n\\end{prooftree}\n\n(weak)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma \\vdash A: B\\)}\n    \\AxiomC{\\(\\Gamma \\vdash C: s\\)}\n    \\BinaryInfC{\\(\\Gamma, x: C \\vdash A: B\\)}\n\\end{prooftree}\n\n(form)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma \\vdash A: s_1\\)}\n    \\AxiomC{\\(\\Gamma, x: A \\vdash B: s_2\\)}\n    \\BinaryInfC{\\(\\Gamma \\vdash \\Pi x: A. B: s_2\\)}\n\\end{prooftree}\n\n(appl)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma \\vdash M: \\Pi x: A. B\\)}\n    \\AxiomC{\\(\\Gamma \\vdash N: A\\)}\n    \\BinaryInfC{\\(\\Gamma \\vdash MN: B[x := N]\\)}\n\\end{prooftree}\n\n(abst)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma, x: A \\vdash M: B\\)}\n    \\AxiomC{\\(\\Gamma \\vdash \\Pi x: A. B: s\\)}\n    \\BinaryInfC{\\(\\Gamma \\vdash \\lambda x: A. M: \\Pi x: M. B\\)}\n\\end{prooftree}\n\n(conv)\n\\begin{prooftree}\n    \\AxiomC{\\(\\Gamma \\vdash A: B\\)}\n    \\AxiomC{\\(\\Gamma \\vdash B': s\\)}\n    \\BinaryInfC{\\(\\Gamma \\vdash A: B'\\)}\n\\end{prooftree}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "\\Pi x: M. B",
+            "target": "\\Pi x: A. B"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

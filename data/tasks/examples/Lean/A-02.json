@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "theorem PT_2 : ack x (y + 1) < ack (x + 1) y := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem PT_2 : ack x (y + 1) < ack (x + 1) y := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

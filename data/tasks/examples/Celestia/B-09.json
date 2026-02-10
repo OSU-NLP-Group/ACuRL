@@ -1,0 +1,48 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Approach Pluto and observe sol with time stopped in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Sol",
+            "type": 1
+        },
+        {
+            "name": "Pluto",
+            "type": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Sol']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Pluto']['distance']",
+            "value": 0,
+            "pred": "lambda key, value: abs(key - value) < 7000"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['time']['pause']",
+            "value": true
+        }
+    ]
+}

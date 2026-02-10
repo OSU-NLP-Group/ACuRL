@@ -1,0 +1,44 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 20,
+    "instruction": "def OP_2 (I : Set (Set α)) (h : ideal I) : Decidable (∃ A ⊆ I, (inter_family A) ∧ (∀ B ⊆ I, (inter_family B) → (#B ≤ #A)) ∧ (star A)) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Cardinal"]
+        },
+        {
+            "func": "def",
+            "expr": "def ideal (I : Set (Set α)) : Prop := ∃ F : Filter α, I = {i : Set α | ∃ f ∈ F.sets, i = fᶜ }"
+        },
+        {
+            "func": "def",
+            "expr": "def inter_family (A : Set (Set α)) : Prop := ∀ X ∈ A, ∀ Y ∈ A, (X ∩ Y) ≠ ∅"
+        },
+        {
+            "func": "def",
+            "expr": "def star (A : Set (Set α)) : Prop := (⋂ X ∈ A, X) ≠ ∅"
+        },
+        {
+            "func": "query",
+            "expr": "def OP_2 (I : Set (Set α)) (h : ideal I) : Decidable (∃ A ⊆ I, (inter_family A) ∧ (∀ B ⊆ I, (inter_family B) → (#B ≤ #A)) ∧ (star A)) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

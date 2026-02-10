@@ -1,0 +1,58 @@
+{
+    "type": "ChimeraX",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "Predict the corresponding protein structure for the nucleic acid sequence of 'MGNDAFKLSSADRGDITINNESGHLIVNTAILSGDIVTLRGGEIRLVL' via AlphaFold in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": [
+                "rm",
+                "/home/user/.local/share/ChimeraX/commands",
+                "/home/user/.local/share/ChimeraX/file_history",
+                "/home/user/.local/share/ChimeraX/preregistration"
+            ]
+        },
+        {
+            "func": "execute",
+            "command": "rm -f /home/user/.config/ChimeraX/ui-* /home/user/.config/ChimeraX/contacts-* /home/user/.config/ChimeraX/alphafold_database-*",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "clear_log"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "key": "/home/user/Downloads/ChimeraX/AlphaFold/prediction_1/best_model.pdb",
+            "value": "ATOM     14  CA  ASN A"
+        },
+        {
+            "type": "file",
+            "key": "/home/user/Downloads/ChimeraX/AlphaFold/prediction_1/best_model.pdb",
+            "value": "ATOM     28  OD2 ASP A"
+        },
+        {
+            "type": "file",
+            "key": "/home/user/Downloads/ChimeraX/AlphaFold/prediction_1/best_model.pdb",
+            "value": "ATOM     57  CB  LEU A"
+        },
+        {
+            "type": "file",
+            "key": "/home/user/Downloads/ChimeraX/AlphaFold/prediction_1/log.txt",
+            "value": "lambda: __import__('datetime').datetime.today().strftime('%Y-%m-%d')"
+        }
+    ]
+}

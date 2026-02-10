@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem DM_4 [Primcodable α] [Primcodable β] [Primcodable γ] [Primcodable δ] {p : α → Prop} {q : β → Prop} {r : γ → Prop} {s : δ → Prop} (h₁ : ManyOneEquiv p r) (h₂ : ManyOneEquiv q s) : ManyOneEquiv (Sum.elim p q) (Sum.elim r s) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem DM_4 [Primcodable α] [Primcodable β] [Primcodable γ] [Primcodable δ] {p : α → Prop} {q : β → Prop} {r : γ → Prop} {s : δ → Prop} (h₁ : ManyOneEquiv p r) (h₂ : ManyOneEquiv q s) : ManyOneEquiv (Sum.elim p q) (Sum.elim r s) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

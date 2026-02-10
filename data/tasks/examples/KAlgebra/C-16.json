@@ -1,0 +1,50 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Plot a plane parallel to the plane 3x + y - z + 4 = 0 with a z-intercept of -2 in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-11.55, -0.41, -3],
+                [-3, 0.93, -10.07],
+                [-7, -11, -34],
+                [0, -4.92, -6.92],
+                [13.77, 14.78, 4],
+                [16, 4.23, 5.2994113210638405],
+                [2, 6.83, -13.06308853851272],
+                [3.65, 5, -5.80082733054053],
+                [5, 3, 20],
+                [9, -1.86, 7]
+            ],
+            "value": {
+                "(-11.55, -0.41, -3)": false,
+                "(-3, 0.93, -10.07)": true,
+                "(-7, -11, -34)": true,
+                "(0, -4.92, -6.92)": true,
+                "(13.77, 14.78, 4)": false,
+                "(16, 4.23, 5.2994113210638405)": false,
+                "(2, 6.83, -13.06308853851272)": false,
+                "(3.65, 5, -5.80082733054053)": false,
+                "(5, 3, 20)": false,
+                "(9, -1.86, 7)": false
+            }
+        }
+    ],
+    "ans": "3x+y-z=2"
+}

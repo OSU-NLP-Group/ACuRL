@@ -1,0 +1,110 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "Display a complete view of the sun and its eight planets with their orbits shown in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Sol",
+            "type": 1
+        },
+        {
+            "name": "Mercury",
+            "type": 2
+        },
+        {
+            "name": "Venus",
+            "type": 2
+        },
+        {
+            "name": "Earth",
+            "type": 2
+        },
+        {
+            "name": "Mars",
+            "type": 2
+        },
+        {
+            "name": "Jupiter",
+            "type": 2
+        },
+        {
+            "name": "Saturn",
+            "type": 2
+        },
+        {
+            "name": "Uranus",
+            "type": 2
+        },
+        {
+            "name": "Neptune",
+            "type": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Sol']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Mercury']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Venus']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Earth']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Mars']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Jupiter']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Saturn']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Uranus']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Neptune']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['render']['orbits']",
+            "value": true
+        }
+    ]
+}

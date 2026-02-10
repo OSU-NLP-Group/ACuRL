@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem MT_1 (𝒞 : Set (Set Ω)) (h : #𝒞 = ℵ₀) : #(generateSetAlgebra 𝒞) = ℵ₀ := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Cardinal", "MeasureTheory"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem MT_1 (𝒞 : Set (Set Ω)) (h : #𝒞 = ℵ₀) : #(generateSetAlgebra 𝒞) = ℵ₀ := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem TP_2 [TopologicalSpace X] (A B : Set X) (h : (derivedSet A) ⊆ B ∧ B ⊆ A) : IsClosed B := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem TP_2 [TopologicalSpace X] (A B : Set X) (h : (derivedSet A) ⊆ B ∧ B ⊆ A) : IsClosed B := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

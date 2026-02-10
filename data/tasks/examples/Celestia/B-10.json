@@ -1,0 +1,52 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Completely display the Earth-Moon system and show both ecliptic lines and the ecliptic coordinate grid in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Earth",
+            "type": 2
+        },
+        {
+            "name": "Moon",
+            "type": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Earth']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Moon']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['render']['ecliptic']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['render']['eclipticGrid']",
+            "value": true
+        }
+    ]
+}

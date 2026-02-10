@@ -1,0 +1,46 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Switch to the tab of '2D Graph' and plot f(x) = x^2 in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-11, 10.746585199686596],
+                [-12, 8],
+                [0, -11],
+                [0.97, 4],
+                [1, 1],
+                [11, -6],
+                [11.92, 142.0864],
+                [18, 324],
+                [4.33, 18.7489],
+                [4.96, -4.038706673849717]
+            ],
+            "value": {
+                "(-11, 10.746585199686596)": false,
+                "(-12, 8)": false,
+                "(0, -11)": false,
+                "(0.97, 4)": false,
+                "(1, 1)": true,
+                "(11, -6)": false,
+                "(11.92, 142.0864)": true,
+                "(18, 324)": true,
+                "(4.33, 18.7489)": true,
+                "(4.96, -4.038706673849717)": false
+            }
+        }
+    ],
+    "ans": "x->x^2"
+}

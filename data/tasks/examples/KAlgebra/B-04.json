@@ -1,0 +1,55 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Change the color of the given curve into pure black in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 1
+        },
+        {
+            "func": "func_2d",
+            "expr": "x->e^x-1"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-13, -15],
+                [-2.49, -0.9170900334248273],
+                [-24.71, -11.376955947762768],
+                [-8, -0.9996645373720975],
+                [0.42, 0.5219615556186337],
+                [1, 1.718281828459045],
+                [1.9, -8],
+                [16.64, 16852337.69353376],
+                [5.31, 201.35022838814749],
+                [6, -10]
+            ],
+            "value": {
+                "(-13, -15)": false,
+                "(-2.49, -0.9170900334248273)": true,
+                "(-24.71, -11.376955947762768)": false,
+                "(-8, -0.9996645373720975)": true,
+                "(0.42, 0.5219615556186337)": true,
+                "(1, 1.718281828459045)": true,
+                "(1.9, -8)": false,
+                "(16.64, 16852337.69353376)": true,
+                "(5.31, 201.35022838814749)": true,
+                "(6, -10)": false,
+                "color": "#000000"
+            }
+        }
+    ],
+    "ans": "N/A"
+}

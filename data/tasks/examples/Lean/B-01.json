@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem DM_1 {a p : ℕ} (h₁ : Nat.Prime p) (h₂ : Odd a) (h₃ : IsCoprime a p) : (a ^ (p - 1) + (p - 1) ^ a) ≡ 0 [ZMOD p] := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem DM_1 {a p : ℕ} (h₁ : Nat.Prime p) (h₂ : Odd a) (h₃ : IsCoprime a p) : (a ^ (p - 1) + (p - 1) ^ a) ≡ 0 [ZMOD p] := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

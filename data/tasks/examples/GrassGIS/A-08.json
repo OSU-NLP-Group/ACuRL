@@ -1,0 +1,70 @@
+{
+    "type": "GrassGIS",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Fully display Bulgaria on the map with the current scale unchanged in Grass GIS.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/world_latlong_wgs84/PERMANENT\"",
+            "shell": true
+        },
+        {
+            "func": "map",
+            "grassdb": "/home/user/grassdata",
+            "location": "natural_earth_dataset",
+            "mapset": "PERMANENT"
+        },
+        {
+            "func": "layer",
+            "wait": 5,
+            "query": {
+                "name": "countries"
+            }
+        },
+        {
+            "func": "scale",
+            "scale": 25
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['statusbar']['scale']",
+            "value": 25,
+            "pred": "lambda key, value: abs(key - value) < 0.1"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['n']",
+            "value": 43.5,
+            "pred": "lambda key, value: key > value"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['s']",
+            "value": 41.5,
+            "pred": "lambda key, value: key < value"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['e']",
+            "value": 28,
+            "pred": "lambda key, value: key > value"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['region']['w']",
+            "value": 23,
+            "pred": "lambda key, value: key < value"
+        }
+    ]
+}

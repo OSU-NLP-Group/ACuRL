@@ -1,0 +1,40 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The f(24) of the Fibonacci sequence listed in TeXstudio is erroneous. Please find the correct answer in KAlgebra and replace the wrong one with it.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\begin{figure}[h]\n    \\vspace{-1ex}\n    \\centering\n    \\renewcommand{\\arraystretch}{1.8}\n    \\begin{tabular}{|c|c|c|c|c|c|c|}\n    \\hline\n    $f(8)$\n    & $f(12)$\n    & $f(16)$\n    & $f(20)$\n    & $f(24)$\n    & $f(28)$\n    & $f(32)$ \\\\\n    \\hline\n    $21$\n    & $144$\n    & $987$\n    & $6765$\n    & $38657$\n    & $317811$\n    & $2178309$ \\\\\n    \\hline\n    \\end{tabular}\n    \\vspace{1ex}\n    \\caption{Instances of the Fibonacci Sequence}\n\\end{figure}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "38657",
+            "target": "46368"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

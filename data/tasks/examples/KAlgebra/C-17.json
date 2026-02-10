@@ -1,0 +1,50 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "If the equation of a cylinder directrix is { x^2 + y^2 + z^2 = 1, 2x^2 + 2y^2 + z^2 = 2 } and the direction numbers of its busbar are -1, 0, 1, please plot this cylinder in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-0.55, -1, 0],
+                [-1.69, -2.0006160742246046, 0.15],
+                [-1.82, 0.7076155047137841, 1],
+                [0, -0.0, 1],
+                [0, 0, -0.48],
+                [0, 0, 1],
+                [0, 1, -1.57],
+                [0.5, 2, 0.54],
+                [0.89, -0.4559605246071199, 0],
+                [1.0, 0.9797958971132712, -1.2]
+            ],
+            "value": {
+                "(-0.55, -1, 0)": false,
+                "(-1.69, -2.0006160742246046, 0.15)": false,
+                "(-1.82, 0.7076155047137841, 1)": false,
+                "(0, -0.0, 1)": true,
+                "(0, 0, -0.48)": false,
+                "(0, 0, 1)": true,
+                "(0, 1, -1.57)": false,
+                "(0.5, 2, 0.54)": false,
+                "(0.89, -0.4559605246071199, 0)": true,
+                "(1.0, 0.9797958971132712, -1.2)": true
+            }
+        }
+    ],
+    "ans": "x^2+y^2+z^2+2x*z=1"
+}

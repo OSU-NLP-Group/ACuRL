@@ -1,0 +1,32 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Find the area of ​​the given figure in KAlgebra and store the value in variable `area`.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 1
+        },
+        {
+            "func": "func_2d",
+            "expr": "x^2/16+y^2/9=1"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "val",
+            "key": "area",
+            "value": 37.6991118431
+        }
+    ],
+    "ans": "area := pi*3*4"
+}

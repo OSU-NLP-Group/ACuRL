@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    "libreoffice_impress.art_slide1",
+    "libreoffice_impress.art_slide2",
+    "libreoffice_impress.art_slide3",
+    "libreoffice_impress.education_slide1",
+    "libreoffice_impress.mobile_slide1",
+    "libreoffice_impress.research_slide1",
+    "libreoffice_impress.social_slide1",
+    "libreoffice_impress.technology_slide1"
+  ]
+}

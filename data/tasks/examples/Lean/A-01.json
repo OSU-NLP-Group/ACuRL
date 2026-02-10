@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "theorem PT_1 {R : Sort u → Sort u → Prop} (h₁ : ∀ x, ∀ y, R x y → R y x) (h₂ : ∀ x, ∀ y, ∀ z, R x y ∧ R y z →  R x z) (h₃ : ∀ x, ∃ y, R x y) : ∀ x, R x x := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem PT_1 {R : Sort u → Sort u → Prop} (h₁ : ∀ x, ∀ y, R x y → R y x) (h₂ : ∀ x, ∀ y, ∀ z, R x y ∧ R y z →  R x z) (h₃ : ∀ x, ∃ y, R x y) : ∀ x, R x x := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

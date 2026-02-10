@@ -1,0 +1,79 @@
+{
+  "id": "education_slide1",
+  "snapshot": "libreoffice_impress",
+  "instruction": "You are given access to a software application in its current state. Your task is to actively and read-only explore the application to understand the full user context, including multiple distinct content areas, views, or sections, not just a single default view. You must navigate into and inspect representative content from each major content-bearing area (e.g., different folders, tabs, panels, lists, or sections) to verify what information exists and how it differs across areas. Do not modify, create, delete, send, save, or trigger any actions that persist changes. You must not finish after exploring only one section or view; only finish after you have reasonably covered the breadth of the application’s content space.",
+  "source": "https://help.libreoffice.org/6.4/en-US/text/simpress/guide/photo_album.html?DbPAR=IMPRESS",
+  "config": [
+    {
+      "type": "download",
+      "parameters": {
+        "files": [
+          {
+            "url": "https://huggingface.co/datasets/xuetianci99/ACuRL_files/resolve/main/education_slide1.pptx",
+            "path": "/home/user/Desktop/education_slide1.pptx"
+          }
+        ]
+      }
+    },
+    {
+      "type": "open",
+      "parameters": {
+        "path": "/home/user/Desktop/education_slide1.pptx"
+      }
+    }
+  ],
+  "trajectory": "trajectories/",
+  "related_apps": [
+    "libreoffice_impress"
+  ],
+  "evaluator": {
+    "postconfig": [
+      {
+        "type": "activate_window",
+        "parameters": {
+          "window_name": "education_slide1.pptx - LibreOffice Impress",
+          "strict": true
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      },
+      {
+        "type": "execute",
+        "parameters": {
+          "command": [
+            "python",
+            "-c",
+            "import pyautogui; import time; pyautogui.hotkey('ctrl', 's'); time.sleep(0.5);"
+          ]
+        }
+      },
+      {
+        "type": "sleep",
+        "parameters": {
+          "seconds": 0.5
+        }
+      }
+    ],
+    "func": "compare_pptx_files",
+    "expected": {
+      "type": "cloud_file",
+      "path": "https://huggingface.co/datasets/xuetianci99/ACuRL_files/resolve/main/education_slide1.pptx",
+      "dest": "education_slide1.pptx"
+    },
+    "result": {
+      "type": "vm_file",
+      "path": "/home/user/Desktop/education_slide1.pptx",
+      "dest": "education_slide1.pptx"
+    },
+    "options": {
+      "examine_shape": false
+    }
+  },
+  "proxy": false,
+  "fixed_ip": false,
+  "possibility_of_env_change": "low"
+}

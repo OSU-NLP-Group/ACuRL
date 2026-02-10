@@ -1,0 +1,35 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "Go to the brightest star in absolute magnitude within 20ly of Earth in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Sirius A",
+            "type": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Sirius A']['distance']",
+            "value": 0,
+            "pred": "lambda key, value: abs(key - value) < 170000000"
+        }
+    ],
+    "ans": "Sirius A"
+}

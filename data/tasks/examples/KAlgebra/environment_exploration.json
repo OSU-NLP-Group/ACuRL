@@ -1,0 +1,24 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "You are now free to explore this software environment as thoroughly as possible. Your primary goal is to discover and interact with the most commonly used and essential features of the software. Each action you take will be recorded, and screenshots will be captured along the way. These interactions will later be synthesized into a series of tasks, which will help the agent become fully familiar with the software and capable of completing any task related to it. Focus on breadth and depth of exploration, prioritizing actions that represent typical user workflows and high-value functionalities. Never stop—keep pushing forward and exploring without limits. Act as if you must never stop exploring. If you reach the end of a path, immediately seek another. Keep pushing boundaries and interacting with new functions indefinitely. Your exploration is ongoing and open-ended. Never output done or finished!",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["4"]
+        }
+    ],
+    "ans": "ANS 4"
+}

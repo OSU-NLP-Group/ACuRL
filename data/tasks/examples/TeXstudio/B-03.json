@@ -1,0 +1,50 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The citation of Grass GIS has been written in refs.bib. Find the number of provinces in Piemonte and fill it in the table of the article shown in TeXstudio replacing the placeholder of '0', and then cite Grass GIS right after it by filling the \\cite macro directly.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Italy's Regioni and Province \\par}\n\\bigskip\\noindent\n\nItaly\u2019s administrative structure is organized into several layers, with the most prominent being its regioni (regions) and province (provinces). This system reflects the country\u2019s rich historical, cultural, and geographical diversity. At the top of the administrative hierarchy are the 20 regioni, each with a distinct identity and varying degrees of autonomy. Five of these regions\u2014Sicilia, Sardegna, Valle d\u2019Aosta, Trentino-Alto Adige/S\u00fcdtirol, and Friuli Venezia Giulia\u2014enjoy special autonomous status, granting them greater legislative power, particularly in cultural, linguistic, and economic matters.\n\nWithin the regions are over 100 province (or citt\u00e0 metropolitane in some urban areas), which serve as intermediate administrative divisions between the regional and municipal levels. The provinces are responsible for local planning, transportation, and some administrative duties. Over the years, reforms have sought to reduce the role of provinces in favor of more direct regional and municipal governance, but they remain a key component of Italy\u2019s territorial organization.\n\n\\begin{figure}[h]\n    \\vspace{-1ex}\n    \\centering\n    \\renewcommand{\\arraystretch}{1.8}\n    \\begin{tabular}{|c|c|c|c|c|c|c|}\n    \\hline\n    \\textbf{Regioni}\n    & Veneto\n    & Liguria\n    & Lombardy\n    & Piedmont \\\\\n    \\hline\n    \\textbf{Province Count}\n    & 7\n    & 4\n    & 12\n    & 0 \\cite{} \\\\\n    \\hline\n    \\end{tabular}\n    \\vspace{1ex}\n    \\caption{Instances of some regions in Italy}\n\\end{figure}\n\nTogether, the regioni and province form the backbone of Italy\u2019s decentralized system, balancing national unity with strong local identities and governance.\n\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "touch",
+            "text": "@Manual{GRASS_GIS_software,\n  title = {Geographic Resources Analysis Support System (GRASS GIS) Software, Version 8.4},\n  author = {{GRASS Development Team}},\n  organization = {Open Source Geospatial Foundation},\n  address = {USA},\n  year = {2024},\n  url = {https://grass.osgeo.org},\n  doi = {10.5281/zenodo.5176030}\n}\n",
+            "path": "/home/user/atelier/refs.bib"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/refs.bib /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/grassdata_piemonte_utm32n_wgs84_grass7/PERMANENT\"",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "0 \\cite{}",
+            "target": "8 \\cite{GRASS_GIS_software}"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem TP_5 [TopologicalSpace X] [RegularSpace X] (A Y : Set X) (h₁ : IsCompact A) (h₂ : A ⊆ Y ∧ Y ⊆ Aᶜ) : IsCompact Y := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem TP_5 [TopologicalSpace X] [RegularSpace X] (A Y : Set X) (h₁ : IsCompact A) (h₂ : A ⊆ Y ∧ Y ⊆ Aᶜ) : IsCompact Y := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

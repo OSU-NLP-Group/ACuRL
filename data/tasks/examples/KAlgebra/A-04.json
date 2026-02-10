@@ -1,0 +1,27 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Answer the question: name of the built-in function which calculate the inverse of a matrix.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "tab",
+            "index": 3
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "FAIL"
+        }
+    ],
+    "ans": "FAIL"
+}

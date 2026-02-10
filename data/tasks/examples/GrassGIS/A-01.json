@@ -1,0 +1,29 @@
+{
+    "type": "GrassGIS",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Switch to natural_earth_dataset and load countries@PERMANENT in Grass GIS.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "execute",
+            "command": "rm -rf /home/user/grassdata/*/*/.gislock",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 5,
+            "command": "gnome-terminal -- /bin/bash -ic \"FLASK_PORT=8000 grass --gui /home/user/grassdata/world_latlong_wgs84/PERMANENT\"",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['layers']",
+            "value": "countries@PERMANENT",
+            "pred": "lambda key, value: any([item['name'] == value for item in key])"
+        }
+    ]
+}

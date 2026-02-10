@@ -1,0 +1,32 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem ST_1 (X : ZFSet) : ((IsTransitive X) ↔ (X ⊆ powerset X)) ∧ ((IsTransitive X) ↔ ((⋃₀ X : ZFSet) ⊆ X)) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["ZFSet"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem ST_1 (X : ZFSet) : ((IsTransitive X) ↔ (X ⊆ powerset X)) ∧ ((IsTransitive X) ↔ ((⋃₀ X : ZFSet) ⊆ X)) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Suppose f(n) to be the n-st fibonacci sequence and f(1) = f(2) = 1. Calculate f(24) in KAlgebra and submit the result via `ANS`.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "stop",
+            "value": "ANS",
+            "args": ["46368"]
+        }
+    ],
+    "ans": "ANS 46368"
+}

@@ -1,0 +1,37 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Display orbits of dwarf planets but not moons in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['render']['orbits']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['orbit']['dwarfPlanet']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['config']['orbit']['moon']",
+            "value": false
+        }
+    ]
+}

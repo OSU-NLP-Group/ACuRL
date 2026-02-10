@@ -1,0 +1,36 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem ST_3 (h : 𝔠 > ℵ_ (ord ℵ₁)) : (ℷ (ℵ_ ω) = 2 ^ ℵ₀) ∧ (ℷ (ℵ_ <| ω_ 1) = 2 ^ ℵ₁) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "open",
+            "libs": ["Ordinal", "Cardinal"]
+        },
+        {
+            "func": "def",
+            "expr": "def ℷ (κ : Cardinal) : Cardinal := κ ^ cof κ.ord"
+        },
+        {
+            "func": "query",
+            "expr": "theorem ST_3 (h : 𝔠 > ℵ_ (ord ℵ₁)) : (ℷ (ℵ_ ω) = 2 ^ ℵ₀) ∧ (ℷ (ℵ_ <| ω_ 1) = 2 ^ ℵ₁) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Load the script from ~/script.kal where Archimedean spiral's equation r(a) is defined, then use the predefined variable r to plot the spiral of r(2) in KAlgebra.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        },
+        {
+            "func": "touch",
+            "text": "r := a->q->a*q",
+            "path": "/home/user/script.kal"
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "eqn",
+            "key": [
+                [-1, -2],
+                [-11, -25],
+                [-4.02, -8.04],
+                [0.13, 0.26],
+                [1, 2],
+                [3.73, 7.46],
+                [30, 60],
+                [4, 7],
+                [8, 16]
+            ],
+            "value": {
+                "(-1, -2)": true,
+                "(-11, -25)": false,
+                "(-4.02, -8.04)": true,
+                "(0.13, 0.26)": true,
+                "(1, 2)": true,
+                "(3.73, 7.46)": true,
+                "(30, 60)": true,
+                "(4, 7)": false,
+                "(8, 16)": true
+            }
+        }
+    ],
+    "ans": "Ctrl+L: ~/script.kal; q->(r(2))(q)"
+}

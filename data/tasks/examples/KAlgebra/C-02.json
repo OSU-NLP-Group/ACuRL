@@ -1,0 +1,24 @@
+{
+    "type": "KAlgebra",
+    "sort": "VM",
+    "steps": 5,
+    "instruction": "Compare e^π and π^e in KAlgebra and store the bigger one in variable `p`.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/kalgebra «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "val",
+            "key": "p",
+            "value": 23.1406926205
+        }
+    ],
+    "ans": "p := e^pi"
+}

@@ -1,0 +1,28 @@
+{
+    "type": "Lean",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "theorem AA_1 [Group G] [IsCyclic G] (N : Subgroup G) [Pow (G ⧸ N) ℤ] : IsCyclic (G ⧸ N) := by sorry",
+    "version": "0.1",
+    "initialize": [
+        {
+            "func": "import",
+            "libs": ["Mathlib"]
+        },
+        {
+            "func": "query",
+            "expr": "theorem AA_1 [Group G] [IsCyclic G] (N : Subgroup G) [Pow (G ⧸ N) ℤ] : IsCyclic (G ⧸ N) := by sorry"
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "code /home/user/sci /home/user/sci/Sci/Basic.lean",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "placeholder"
+        }
+    ]
+}

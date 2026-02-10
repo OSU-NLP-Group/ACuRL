@@ -1,0 +1,49 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The citation of Celestia has been written in refs.bib. Find the COSPAR ID for Gemini 9A in Celestia and fill it in the article shown in TeXstudio replacing the placeholder of '????-????', and then cite Celestia right after it by filling the \\cite macro directly.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\\usepackage{url}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE Gemini 9A \\par}\n\\bigskip\\noindent\n\nGemini 9A was a pivotal mission in NASA's Gemini program, which served as a critical stepping stone between the Mercury and Apollo missions. Launched on June 3, 1966, Gemini 9A was the seventh crewed flight of the Gemini series and was designed to further develop techniques essential for future lunar missions, such as orbital rendezvous, docking procedures, and extravehicular activity (EVA).\n\nThe mission was crewed by astronauts Thomas P. Stafford (Command Pilot) and Eugene A. Cernan (Pilot), both of whom would later play key roles in the Apollo program. Gemini 9A faced several technical challenges, including difficulties with docking due to a launch shroud failing to fully detach from the target vehicle, and a problematic spacewalk that highlighted the need for better EVA training and equipment.\n\nOfficially cataloged with the COSPAR ID ????-???? \\cite{}, Gemini 9A remains a significant milestone in space exploration, providing valuable lessons that informed the design and execution of subsequent Apollo missions.\n\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "touch",
+            "text": "@misc{celestia,\n  title={Celestia},\n  author={Chris Laurel},\n  howpublished={\\url{www.shatters.net/celestia/}}\n}\n",
+            "path": "/home/user/atelier/refs.bib"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/refs.bib /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "????-???? \\cite{}",
+            "target": "1966-047A \\cite{celestia}"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}

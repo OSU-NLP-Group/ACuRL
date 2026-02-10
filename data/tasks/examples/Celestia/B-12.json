@@ -1,0 +1,59 @@
+{
+    "type": "Celestia",
+    "sort": "VM",
+    "steps": 15,
+    "instruction": "Approach to the Earth and display a solar eclipse in Celestia.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "opt",
+            "depth": 6
+        },
+        {
+            "func": "launch",
+            "wait": 10,
+            "command": "LD_LIBRARY_PATH=/home/user/6.5.0/gcc_64/lib /app/bin/celestia-qt6 «PORTLIKE»",
+            "shell": true
+        }
+    ],
+    "query": [
+        {
+            "name": "Sol",
+            "type": 1
+        },
+        {
+            "name": "Earth",
+            "type": 2
+        },
+        {
+            "name": "Moon",
+            "type": 2
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Earth']['distance']",
+            "value": 0,
+            "pred": "lambda key, value: abs(key - value) < 450000"
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Sol']['visible']",
+            "value": false
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: dump['entity']['Moon']['visible']",
+            "value": true
+        },
+        {
+            "type": "info",
+            "key": "lambda dump: (s := dump['entity']['Sol']['position'], e := dump['entity']['Earth']['position'], m := dump['entity']['Moon']['position'], mv := [m[i] - e[i] for i in range(3)], sv := [s[i] - e[i] for i in range(3)], dp := mv[0] * sv[0] + mv[1] * sv[1] + mv[2] * sv[2], _mv := __import__('math').sqrt(mv[0]**2 + mv[1]**2 + mv[2]**2), _sv := __import__('math').sqrt(sv[0]**2 + sv[1]**2 + sv[2]**2), dp / (_mv * _sv))[-1]",
+            "value": 0.99,
+            "pred": "lambda key, value: key > value"
+        }
+    ],
+    "ans": "2460409.168200"
+}

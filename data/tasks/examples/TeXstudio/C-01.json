@@ -1,0 +1,55 @@
+{
+    "type": "TeXstudio",
+    "sort": "VM",
+    "steps": 10,
+    "instruction": "The depiction of one atom (one of C/O/N) counting in the article shown in TeXstudio is erroneous. Replace it with what you find in ChimeraX.",
+    "version": "0.1",
+    "snapshot": "sci_bench",
+    "initialize": [
+        {
+            "func": "touch",
+            "text": "\\documentclass[11pt,a4paper]{article}\n\\usepackage[utf8]{inputenc}\n\\usepackage[english]{babel}\n\n\\begin{document}\n\n\\noindent {\\bfseries\\LARGE 2OLX \\par}\n\\bigskip\\noindent\n\nThe protein structure designated as 2OLX in the RCSB Protein Data Bank represents the NNQQ peptide, a short segment derived from the yeast prion protein SUP35. This structure is classified as a protein fibril, capturing a key motif involved in amyloid fiber formation\u2014a process central to understanding prion propagation and related protein misfolding disorders.\n\nThe structure was determined through X-ray diffraction at an exceptionally high resolution of 1.42 \u00c5, allowing for detailed visualization of atomic interactions within the peptide. Deposited on January 19, 2007 and released shortly after on January 30, 2007, the work was conducted by researchers Nelson, Sawaya, and Eisenberg, known for their contributions to structural biology and prion research.\n\nImportantly, the molecular composition of this peptide reveals its simplicity and elegance: it contains 18 carbon atoms (C), 4 oxygen atoms (O), and 8 nitrogen atoms (N). These atoms are arranged in a way that supports the peptide\u2019s ability to form a highly ordered, beta-sheet-rich amyloid fibril\u2014an architecture commonly associated with prion proteins and other amyloid diseases.\n\nDespite its minimal size, the 2OLX structure provides profound insights into the molecular basis of amyloid formation, showcasing how even short peptide segments can adopt highly stable, self-assembling structures. The absence of mutations in this sequence further highlights its role as a natural and functionally significant motif in yeast prion biology.\n\n\\end{document}\n",
+            "path": "/home/user/atelier/main.tex"
+        },
+        {
+            "func": "launch",
+            "wait": 2.5,
+            "command": "texstudio /home/user/atelier/main.tex",
+            "shell": true
+        },
+        {
+            "func": "launch",
+            "wait": 7.5,
+            "command": [
+                "chimerax",
+                "--cmd",
+                "remotecontrol rest start json true port «PORTLIKE»"
+            ]
+        },
+        {
+            "func": "chimerax_clear_log"
+        },
+        {
+            "func": "chimerax_open",
+            "name": "2olx"
+        },
+        {
+            "func": "chimerax_turn",
+            "axis": "y",
+            "angle": 1
+        }
+    ],
+    "evaluate": [
+        {
+            "type": "file",
+            "path": "/home/user/atelier/main.tex",
+            "source": "4 oxygen",
+            "target": "9 oxygen"
+        },
+        {
+            "type": "compile",
+            "path": "/home/user/atelier",
+            "file": "main"
+        }
+    ]
+}
