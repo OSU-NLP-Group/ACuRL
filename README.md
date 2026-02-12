@@ -5,7 +5,7 @@
 
 
 <p align="center">
-  <a href="">
+  <a href="https://arxiv.org/abs/2602.10356">
     <img src="https://img.shields.io/badge/arXiv-Paper-red?style=flat-square&logo=arxiv" alt="arXiv Paper"></a>
   &nbsp;
   <a href="https://github.com/OSU-NLP-Group/ACuRL">
@@ -230,5 +230,14 @@ We also thank [UI-TARS](https://github.com/bytedance/UI-TARS) and [QwenVL](https
 If you find our work or codebase useful in your research or applications, we kindly ask that you cite our work.
 
 ```
+@misc{xue2026autonomouscontinuallearningcomputeruse,
+      title={Autonomous Continual Learning of Computer-Use Agents for Environment Adaptation}, 
+      author={Tianci Xue and Zeyi Liao and Tianneng Shi and Zilu Wang and Kai Zhang and Dawn Song and Yu Su and Huan Sun},
+      year={2026},
+      eprint={2602.10356},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2602.10356}, 
+}
 
 ```
