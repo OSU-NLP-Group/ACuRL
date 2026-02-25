@@ -3,7 +3,7 @@
 Compute per-task performance from rollout result files and write ONE detailed JSON.
 
 It scans:
-  results_dir/osworld.*/training_step_0/<rollout_id>/<rollout_id>.json
+  results_dir/osworld.*/training_step_*/<rollout_id>/<rollout_id>.json
 
 and uses `cuajudge_success_rate` as the rollout score.
 """
@@ -32,7 +32,15 @@ def load_rollout_scores(results_dir: str) -> Tuple[Dict[str, List[float]], Dict[
         task_dir = os.path.join(results_dir, item)
         if not (os.path.isdir(task_dir)):
             continue
-        step_dir = os.path.join(task_dir, "training_step_0")
+        subdirs = [
+            name
+            for name in os.listdir(task_dir)
+            if os.path.isdir(os.path.join(task_dir, name))
+        ]
+        if not subdirs:
+            continue
+        subdirs.sort()
+        step_dir = os.path.join(task_dir, subdirs[0])
 
         for rollout_id in os.listdir(step_dir):
             result_file = os.path.join(step_dir, rollout_id, f"{rollout_id}.json")
