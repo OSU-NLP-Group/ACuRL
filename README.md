@@ -1,5 +1,5 @@
 <h1 align="center">
-<b>Autonomous Continual Learning of Computer-Use Agents for Environment Adaptation</b>
+<b>Autonomous Continual Learning for Environment Adaptation of Computer-Use Agents</b>
 <br>
 </h1>
 
@@ -19,17 +19,49 @@
   <img src="figures/ACuRL.jpg" width="1300">
 </p>
 
-### We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steer agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
+### We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steers agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
+
+## News
+- **[2026/05]** 🔥 Stronger agents benefit even more from ACuRL! With **Qwen3-VL-8B** as the base agent, ACuRL achieves substantial progressive gains across environments and iterations (Overall: **22.0 → 28.8**).
+- **[2026/05]** 📉 Environment changes (software updates, OS migration, UI changes, resolution shifts) cause up to **51%** performance drop. ACuRL mitigates this with up to **145%** relative recovery — using **zero human effort**.
+- **[2026/05]** 🌍 ACuRL scales to **cross-environment continual learning** across 5 sequential environments without catastrophic forgetting (Overall: **22.0 → 31.7**).
 
 # Table of Contents
 
+- [Performance](#performance)
 - [Installation](#installation)
-- [Deplopying Environments](#installation)  
+- [Deploying Environments](#deploying-environments)  
+- [Set Up CUAJudge](#set-up-cuajudge)
 - [Training](#training)
 - [Evaluation](#evaluation)
 - [Acknowledgement](#acknowledgement)
 - [Citation](#citation)
 
+# Performance
+
+## Intra-Environment Continual Learning
+
+ACuRL achieves progressive gains of **3--29%** on target environments across iterations without catastrophic forgetting.
+
+<p align="center">
+  <img src="figures/main_results.png" width="1000">
+</p>
+
+## Cross-Environment Continual Learning
+
+ACuRL remains effective as the number of sequentially learned environments increases, achieving the highest overall score without catastrophic forgetting.
+
+<p align="center">
+  <img src="figures/cross_environment.png" width="800">
+</p>
+
+## Mitigating Environment Dynamics
+
+ACuRL effectively mitigates performance degradation under real-world environment changes, including software version updates, platform migration, and resolution changes.
+
+<p align="center">
+  <img src="figures/dynamic_results.png" width="600">
+</p>
 
 # Installation
 ```bash
@@ -160,7 +192,7 @@ bash ./scripts/context_review.sh SOFTWARE_NAME
 **Note:** `./data/tasks/examples/libreoffice_impress/context_review/*.json` is the corresponding task configuration files for initializing the environment.
 
 ## ACuRL Training
-ACuRL training goes through an iterative RL. At the end of each iteration, we conduct a capability evaluation to assess the current agent’s proficiency. The evaluation results are then used by the curriculum generator to adjust task difficulty, tailoring subsequent training tasks to the agent’s current capabilities, thereby enabling effective continual learning.
+ACuRL training goes through an iterative RL. At the end of each iteration, we conduct a capability evaluation to assess the current agent's proficiency. The evaluation results are then used by the curriculum generator to adjust task difficulty, tailoring subsequent training tasks to the agent's current capabilities, thereby enabling effective continual learning.
 
 ### Run Training
 Run the following script to conduct ACuRL Training:
