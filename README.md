@@ -13,6 +13,9 @@
   &nbsp;
   <a href="https://huggingface.co/collections/osunlp/acurl">
     <img src="https://img.shields.io/badge/HuggingFace-Models-yellow?style=flat-square&logo=huggingface" alt="HuggingFace Models"></a>
+  &nbsp;
+  <a href="https://huggingface.co/datasets/osunlp/ACuRL">
+    <img src="https://img.shields.io/badge/HuggingFace-Dataset-yellow?style=flat-square&logo=huggingface" alt="HuggingFace Dataset"></a>
 </p>
 
 <p align="center">
@@ -22,6 +25,7 @@
 ### We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steers agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
 
 ## News
+- **[2026/06]** 📦 We released the ACuRL curriculum task dataset on [Hugging Face](https://huggingface.co/datasets/osunlp/ACuRL), covering tasks generated for Qwen3-VL-8B-Instruct and UI-TARS-1.5-7B base agents with GPT-5.
 - **[2026/05]** 🔥 Stronger agents benefit even more from ACuRL! With **Qwen3-VL-8B** as the base agent, ACuRL achieves substantial progressive gains across environments and iterations (Overall: **22.0 → 28.8**).
 - **[2026/05]** 📉 Environment changes (software updates, OS migration, UI changes, resolution shifts) cause up to **51%** performance drop. ACuRL mitigates this with up to **145%** relative recovery — using **zero human effort**.
 - **[2026/05]** 🌍 ACuRL scales to **cross-environment continual learning** across 5 sequential environments without catastrophic forgetting (Overall: **22.0 → 31.7**).
@@ -249,7 +253,7 @@ You can directly run the following scripts to evaluate saved models in different
 ./scripts/hf_model_evaluation.sh
 ```
 
-To facilitate transparency and enable apples-to-apples comparisons within the community, we release our evaluation results [here](https://drive.google.com/file/d/16vyrwg684HibQAP6cdqvQJuF0tLHjpZE/view?usp=sharing).
+To facilitate transparency and enable apples-to-apples comparisons within the community, we release our evaluation results [here](https://drive.google.com/drive/folders/1DC3pu6qmfOHeOl3gCPVzdlYKnVIH4mwm?usp=sharing).
 
 # Acknowledgement
 
