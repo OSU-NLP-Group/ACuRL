@@ -3,6 +3,13 @@
 <br>
 </h1>
 
+<p align="center">
+  Tianci Xue<sup>1</sup>, Zeyi Liao<sup>1</sup>, Tianneng Shi<sup>2</sup>, Zilu Wang<sup>1</sup>, Kai Zhang<sup>1</sup>, Dawn Song<sup>2</sup>, Yu Su<sup>1</sup>, Huan Sun<sup>1</sup>
+</p>
+
+<p align="center">
+  <sup>1</sup>The Ohio State University &nbsp; <sup>2</sup>University of California, Berkeley
+</p>
 
 <p align="center">
   <a href="https://arxiv.org/abs/2602.10356">
@@ -25,6 +32,7 @@
 ### We introduce **ACuRL**, an **A**utonomous **Cu**rriculum **R**einforcement **L**earning framework that steers agents to continually learn in target environments with zero human data. To provide reliable reward signals during RL, we also introduce **CUAJudge**, a robust automatic evaluator for CUAs that achieves 93% agreement with human judgments.
 
 ## News
+- 🎉 ACuRL has been accepted to **NeurIPS 2026**!
 - **[2026/06]** 📦 We released the ACuRL curriculum task dataset on [Hugging Face](https://huggingface.co/datasets/osunlp/ACuRL), covering tasks generated for Qwen3-VL-8B-Instruct and UI-TARS-1.5-7B base agents with GPT-5.
 - **[2026/05]** 🔥 Stronger agents benefit even more from ACuRL! With **Qwen3-VL-8B** as the base agent, ACuRL achieves substantial progressive gains across environments and iterations (Overall: **22.0 → 28.8**).
 - **[2026/05]** 📉 Environment changes (software updates, OS migration, UI changes, resolution shifts) cause up to **51%** performance drop. ACuRL mitigates this with up to **145%** relative recovery — using **zero human effort**.
